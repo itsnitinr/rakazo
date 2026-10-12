@@ -19,6 +19,7 @@ cleanup() {
 trap cleanup EXIT
 
 adb install -r apps/mobile/android/app/build/outputs/apk/release/app-release.apk
+adb shell settings put secure show_ime_with_hard_keyboard 1
 adb logcat -c
 adb logcat > "$android_log" &
 android_log_pid=$!
